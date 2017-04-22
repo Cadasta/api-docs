@@ -1,6 +1,6 @@
 ## Managing a User Account
 
-People who want to do more than view publicly available organizations and projects, individuals who use the Cadasta Platform are required to <a href="https://docs.cadasta.org/en/01-gettingstarted.html#createnewaccount" target="_blank">set up a user account</a>. 
+People who want to do more than view publicly available organizations and projects, individuals who use the Cadasta Platform are required to <a href="https://docs.cadasta.org/en/01-gettingstarted.html#createnewaccount" target="_blank">set up a user account</a>.
 
 You can use the Cadasta API to manage these accounts, provided that you have their username and password. This section outlines how to do that, focusing on endpoints that start with `api/v1/account/`.
 
@@ -20,11 +20,11 @@ Property | Type Description
 
 ```json
 {
-    "username": "janedoe",
-    "full_name": "Jane Doe",
-    "email": "jane@cadasta.org",
-    "email_verified": true,
-    "last_login": "2016-10-25T20:20:14.192918Z"
+  "username": "janedoe",
+  "full_name": "Jane Doe",
+  "email": "jane@cadasta.org",
+  "email_verified": true,
+  "last_login": "2016-10-25T20:20:14.192918Z"
 }
 ```
 
@@ -73,7 +73,7 @@ Property | Type | Description
 
 
 
-### Log a User Out 
+### Log a User Out
 
 ```endpoint
 POST /api/v1/account/logout/
@@ -124,10 +124,10 @@ The response contains an [account JSON object](#account-object).
 
 ```json
 {
-    "username": "j_smith",
-    "full_name": "Joe Smith",
-    "email": "joe.smith@example.com",
-    "email_verified": false
+  "username": "j_smith",
+  "full_name": "Joe Smith",
+  "email": "joe.smith@example.com",
+  "email_verified": false
 }
 ```
 
@@ -152,11 +152,11 @@ The response contains an [account JSON object](#account-object).
 
 ```json
 {
-    "username": "j_smith",
-    "full_name": "Joe Smith",
-    "email": "joe.smith@example.com",
-    "email_verified": false
-    "last_login": "2016-10-20T19:20:27.848272Z"
+  "username": "j_smith",
+  "full_name": "Joe Smith",
+  "email": "joe.smith@example.com",
+  "email_verified": false,
+  "last_login": "2016-10-20T19:20:27.848272Z"
 }
 ```
 
@@ -192,11 +192,11 @@ The response contains an [account JSON object](#account-object).
 
 ```json
 {
-    "username": "j_smith",
-    "full_name": "Joe Smith",
-    "email": "joe.smith@example.com",
-    "email_verified": false,
-    "last_login": "2016-10-20T19:20:27.848272Z"
+  "username": "j_smith",
+  "full_name": "Joe Smith",
+  "email": "joe.smith@example.com",
+  "email_verified": false,
+  "last_login": "2016-10-20T19:20:27.848272Z"
 }
 ```
 
@@ -224,11 +224,11 @@ Property | Type | Required? | Description
 ---|---|:---:|---
 `new_password` | `String` | x | The new password.
 `re_new_password` | `String` | x | A confirmation of the new password.
-`current_password` | `String` | x | The current password. 
+`current_password` | `String` | x | The current password.
 
 **Response**
 
-If the password was changed successfully, an empty response with response code `200` is returned. 
+If the password was changed successfully, an empty response with response code `200` is returned.
 
 
 
@@ -244,7 +244,7 @@ If the password was changed successfully, an empty response with response code `
 
 This section refers to endpoints that begin with `/api/v1/users/`.
 
-These endpoints are for use by superusers only – individuals who have special account access for an instance of of the Cadasta Platform. They can be used as an entry point to see all users in the platform. 
+These endpoints are for use by superusers only – individuals who have special account access for an instance of of the Cadasta Platform. They can be used as an entry point to see all users in the platform.
 
 ### Platform user response object
 
@@ -256,7 +256,7 @@ Property | Type Description
 `full_name` |  `String` | The user's full name.
 `email` |  `String` | The user's email associated with their account. Must be valid email address.
 `organizations` |  `Array` | An array of organizations the user is a member of. (See the `organizations` object table below for more information).
-`last_login` | `String` | Date and time of last user login. 
+`last_login` | `String` | Date and time of last user login.
 `is_active`| `Boolean` | Whether or not the user is active.
 
 The `organizations` object contains the following properties:
@@ -270,18 +270,18 @@ Property | Type | Description
 
 ```json
 {
-    "username": "janesmith",
-    "full_name": "Jane Smith",
-    "email": "j.smith@example.com",
-    "last_login": "2016-10-20T19:20:27.848272Z",
-    "is_active": true,
-    "organizations": [{
-        "id": "90ush89adh89shd89sah89sah",
-        "name": "Cadasta"
-    }, {
-        "id": "kxzncjkxhziuhsaiojdioasjd",
-        "name": "Foo Corp."
-    }]
+  "username": "janesmith",
+  "full_name": "Jane Smith",
+  "email": "j.smith@example.com",
+  "last_login": "2016-10-20T19:20:27.848272Z",
+  "is_active": true,
+  "organizations": [{
+    "id": "90ush89adh89shd89sah89sah",
+    "name": "Cadasta"
+  }, {
+    "id": "kxzncjkxhziuhsaiojdioasjd",
+    "name": "Foo Corp."
+  }]
 }
 ```
 
@@ -296,7 +296,7 @@ Property | Type | Description
 ```endpoint
 GET /api/v1/users/
 ```
-This method and endpoint return all of the users in the platform. 
+This method and endpoint return all of the users in the platform.
 
 **Response**
 
@@ -305,23 +305,28 @@ The response contains a [list of user JSON objects](#platform-user-response-obje
 #### Example Response
 
 ```json
-[
+{
+  "count": 1,
+  "next": null,
+  "previous": null,
+  "results": [
     {
-        "username": "janesmith",
-        "full_name": "Jane Smith",
-        "email": "j.smith@example.com",
-        "last_login": "2016-10-20T19:20:27.848272Z",
-        "is_active": true,
-        "organizations": [{
-            "id": "90ush89adh89shd89sah89sah",
-            "name": "Cadasta"
-        }, {
-            "id": "kxzncjkxhziuhsaiojdioasjd",
-            "name": "Foo Corp."
-        }]
+      "username": "janesmith",
+      "full_name": "Jane Smith",
+      "email": "j.smith@example.com",
+      "last_login": "2016-10-20T19:20:27.848272Z",
+      "is_active": true,
+      "organizations": [{
+        "id": "90ush89adh89shd89sah89sah",
+        "name": "Cadasta"
+      }, {
+        "id": "kxzncjkxhziuhsaiojdioasjd",
+        "name": "Foo Corp."
+      }]
     }
-]
-``` 
+  ]
+}
+```
 
 
 
@@ -333,7 +338,7 @@ The response contains a [list of user JSON objects](#platform-user-response-obje
 
 ### Get a Platform User
 
-Use this method to view a single user in the platform. 
+Use this method to view a single user in the platform.
 
 ```endpoint
 GET /api/v1/users/{username}/
@@ -348,18 +353,18 @@ The response contains a [user JSON object](#platform-user-response-object), incl
 
 ```json
 {
-    "username": "janesmith",
-    "full_name": "Jane Smith",
-    "email": "j.smith@example.com",
-    "last_login": "2016-10-20T19:20:27.848272Z",
-    "is_active": true,
-    "organizations": [{
-        "id": "90ush89adh89shd89sah89sah",
-        "name": "Cadasta"
-    }, {
-        "id": "kxzncjkxhziuhsaiojdioasjd",
-        "name": "Foo Corp."
-    }]
+  "username": "janesmith",
+  "full_name": "Jane Smith",
+  "email": "j.smith@example.com",
+  "last_login": "2016-10-20T19:20:27.848272Z",
+  "is_active": true,
+  "organizations": [{
+    "id": "90ush89adh89shd89sah89sah",
+    "name": "Cadasta"
+  }, {
+    "id": "kxzncjkxhziuhsaiojdioasjd",
+    "name": "Foo Corp."
+  }]
 }
 ```
 
@@ -378,7 +383,7 @@ Use this method and endpoint to update some of the fields associated with a spec
 
 **Request Payload**
 
-All fields are optional, if a field is not present in the request payload, that field will not be updated. 
+All fields are optional, if a field is not present in the request payload, that field will not be updated.
 
 Property | Type | Required? | Description
 ---|---|:---:|---
@@ -395,18 +400,18 @@ The response contains a [user JSON object](#platform-user-response-object) that 
 
 ```json
 {
-    "username": "janesmith",
-    "full_name": "Jane Smith",
-    "email": "j.smith@example.com",
-    "last_login": "2016-10-20T19:20:27.848272Z",
-    "is_active": true,
-    "organizations": [{
-        "id": "90ush89adh89shd89sah89sah",
-        "name": "Cadasta"
-    }, {
-        "id": "kxzncjkxhziuhsaiojdioasjd",
-        "name": "Foo Corp."
-    }]
+  "username": "janesmith",
+  "full_name": "Jane Smith",
+  "email": "j.smith@example.com",
+  "last_login": "2016-10-20T19:20:27.848272Z",
+  "is_active": true,
+  "organizations": [{
+    "id": "90ush89adh89shd89sah89sah",
+    "name": "Cadasta"
+  }, {
+    "id": "kxzncjkxhziuhsaiojdioasjd",
+    "name": "Foo Corp."
+  }]
 }
 ```
 
