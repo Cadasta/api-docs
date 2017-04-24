@@ -9,9 +9,9 @@ Using this platform API, you can:
 * View, create, and modify [projects](#projects) in the system,
 * Upload new [questionnaires](#questionnaires-1),
 * Add, modify and delete records for:
-* [spatial units/project locations](#spatial-units-aka-project-locations),
-* [parties](#parties) associated with these locations, and
-* the [relationships](#relationships) between the two.
+  * [spatial units/project locations](#spatial-units-aka-project-locations),
+  * [parties](#parties) associated with these locations, and
+  * the [relationships](#relationships) between the two.
 * And finally add, modify, and delete [project resources](#project-resources).
 
 Each of the sections listed above outline how to use API endpoints to make these things happen.
