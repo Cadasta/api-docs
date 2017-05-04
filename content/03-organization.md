@@ -64,37 +64,42 @@ The response body is an array containing an [organization JSON object](#organiza
 #### Example response
 
 ```json
-[
-  {
-    "id": "C9nWLc9znHQ5V0aaX1tmZQoN",
-    "slug": "cadasta",
-    "name": "Cadasta",
-    "description": "",
-    "archived": true,
-    "urls": [],
-    "contacts": []
-  },
-  {
-    "id": "wS3Mp76Spqu9A0Crg9bMxB2o",
-    "slug": "david-org",
-    "name": "David Org",
-    "description": "David Org (testing)",
-    "archived": false,
-    "urls": [],
-    "contacts": [
-      {
-        "tel": null,
-        "name": "David",
-        "email": "david@example.com"
-      },
-      {
-        "tel": null,
-        "name": "Frank",
-        "email": "frank@example.com"
-      }
-    ]
-  }
-]
+{
+  "count": 2,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "id": "C9nWLc9znHQ5V0aaX1tmZQoN",
+      "slug": "cadasta",
+      "name": "Cadasta",
+      "description": "",
+      "archived": true,
+      "urls": [],
+      "contacts": []
+    },
+    {
+      "id": "wS3Mp76Spqu9A0Crg9bMxB2o",
+      "slug": "david-org",
+      "name": "David Org",
+      "description": "David Org (testing)",
+      "archived": false,
+      "urls": [],
+      "contacts": [
+        {
+          "tel": null,
+          "name": "David",
+          "email": "david@example.com"
+        },
+        {
+          "tel": null,
+          "name": "Frank",
+          "email": "frank@example.com"
+        }
+      ]
+    }
+  ]
+}
 ```
 
 
@@ -106,7 +111,7 @@ The response body is an array containing an [organization JSON object](#organiza
 GET /api/v1/organizations/?permissions={permission[,permission]}
 ```
 
-Using the `permissions` query parameter, the list of organizations can be filtered according to the permissions the authenticated user has on the individual organization. 
+Using the `permissions` query parameter, the list of organizations can be filtered according to the permissions the authenticated user has on the individual organization.
 
 If you want to list only organizations where the user can create projects, you request:
 
@@ -146,37 +151,42 @@ The response body is an array containing an [organization JSON object](#organiza
 #### Example response
 
 ```json
-[
-  {
-    "id": "C9nWLc9znHQ5V0aaX1tmZQoN",
-    "slug": "cadasta",
-    "name": "Cadasta",
-    "description": "",
-    "archived": true,
-    "urls": [],
-    "contacts": []
-  },
-  {
-    "id": "wS3Mp76Spqu9A0Crg9bMxB2o",
-    "slug": "david-org",
-    "name": "David Org",
-    "description": "David Org (testing)",
-    "archived": false,
-    "urls": [],
-    "contacts": [
-      {
-        "tel": null,
-        "name": "David",
-        "email": "david@example.com"
-      },
-      {
-        "tel": null,
-        "name": "Frank",
-        "email": "frank@example.com"
-      }
-    ]
-  }
-]
+{
+  "count": 2,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "id": "C9nWLc9znHQ5V0aaX1tmZQoN",
+      "slug": "cadasta",
+      "name": "Cadasta",
+      "description": "",
+      "archived": true,
+      "urls": [],
+      "contacts": []
+    },
+    {
+      "id": "wS3Mp76Spqu9A0Crg9bMxB2o",
+      "slug": "david-org",
+      "name": "David Org",
+      "description": "David Org (testing)",
+      "archived": false,
+      "urls": [],
+      "contacts": [
+        {
+          "tel": null,
+          "name": "David",
+          "email": "david@example.com"
+        },
+        {
+          "tel": null,
+          "name": "Frank",
+          "email": "frank@example.com"
+        }
+      ]
+    }
+  ]
+}
 ```
 
 
@@ -218,7 +228,7 @@ Here's how you need to format your contacts:
     "name": "Orion",
     "email": "orion@example.org",
     "tel": ""
-  }, 
+  },
   {
     "name": "Archimedes",
     "email": "archimedes@example.org",
@@ -277,7 +287,7 @@ The response also contains the field `users`, which provides a list of members o
 GET /api/v1/organizations/{organization_slug}/
 ```
 
-This method gets at a specific organization. 
+This method gets at a specific organization.
 
 **URL Parameters**
 
@@ -333,7 +343,7 @@ The response also contains the field `users`, which provides a list of members o
 PATCH /api/v1/organizations/{organization_slug}/
 ```
 
-This method allows you to update an organization. 
+This method allows you to update an organization.
 
 **URL Parameters**
 
@@ -345,13 +355,13 @@ URL Parameter | Description
 
 The request payload is a JSON object containing the following properties. All properties are optional — if a property is not presented the request payload, the property will not be updated.
 
-| Property | Type | Required? | Description 
-| --- | --- | --- | --- 
-| `name` | `String` |  | The name of the organization. 
-| `description` | `String` |  | A long-form description of the organization. 
-| `archived` | `Boolean` |  | Indicates whether the organization has been archived. 
-| `urls` | `Array` |  | A list of URLs to websites of this organization. 
-| `contacts` | `Array` |  | A list of contacts for this organization. A contact is a JSON object containing `name`, `email` \(optional\) and `tel` \(optional\); either `email` or `tel` must be provided. 
+| Property | Type | Required? | Description
+| --- | --- | --- | ---
+| `name` | `String` |  | The name of the organization.
+| `description` | `String` |  | A long-form description of the organization.
+| `archived` | `Boolean` |  | Indicates whether the organization has been archived.
+| `urls` | `Array` |  | A list of URLs to websites of this organization.
+| `contacts` | `Array` |  | A list of contacts for this organization. A contact is a JSON object containing `name`, `email` \(optional\) and `tel` \(optional\); either `email` or `tel` must be provided.
 
 **Response**
 
@@ -423,13 +433,13 @@ Property | Type | Description
 #### Example Member JSON Object
 
 ```json
-{ 
-    "username": "Joyce", 
-    "full_name": "Joyce Jones", 
-    "email": "joyce@example.org", 
-    "email_verified": true, 
-    "last_login": "2016-10-21T23:18:45.135341Z", 
-    "admin": true 
+{
+    "username": "Joyce",
+    "full_name": "Joyce Jones",
+    "email": "joyce@example.org",
+    "email_verified": true,
+    "last_login": "2016-10-21T23:18:45.135341Z",
+    "admin": true
 }
 ```
 
@@ -458,43 +468,27 @@ The response body is an array containing an [organization JSON object](#organiza
 #### Example Response
 
 ```json
-[
 {
-  "id": "wS3Mp76Spqu9A0Crg9bMxB2o",
-  "slug": "david-org",
-  "name": "David Org",
-  "description": "David Org (testing)",
-  "archived": false,
-  "urls": [],
-  "contacts": [
-     {
-         "tel": null,
-         "name": "David",
-         "email": "david@example.org"
-     },
-     {
-         "tel": null,
-         "name": "Frank",
-         "email": "frank@example.org"
-     }
-     ],
- "users": [
-     {
-         "username": "Kate",
-         "full_name": "Kate",
-         "email": "kate@example.org",
-         "email_verified": false,
-         "last_login": "2016-07-15T00:01:29.446812Z"
-     }
-     {
-         "username": "Beth",
-         "full_name": "Beth",
-         "email": "beth@example.org",
-         "email_verified": true,
-         "last_login": "2016-04-17T00:01:29.446812Z"
-     }
-   ]
-}]
+  "count": 2,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+       "username": "Kate",
+       "full_name": "Kate",
+       "email": "kate@example.org",
+       "email_verified": false,
+       "last_login": "2016-07-15T00:01:29.446812Z"
+    }
+    {
+       "username": "Beth",
+       "full_name": "Beth",
+       "email": "beth@example.org",
+       "email_verified": true,
+       "last_login": "2016-04-17T00:01:29.446812Z"
+    }
+  ]
+}
 ```
 
 
@@ -507,7 +501,7 @@ The response body is an array containing an [organization JSON object](#organiza
 POST /api/v1/organizations/{organization_slug}/users/
 ```
 
-This method adds a member to the organization. Note that the person needs to have an account for this to work. 
+This method adds a member to the organization. Note that the person needs to have an account for this to work.
 
 **URL Parameters**
 
@@ -524,7 +518,7 @@ Property | Type | Required? | Description
 
 **Response**
 
-The response is an [organization member JSON object](#organization-member-json-object). 
+The response is an [organization member JSON object](#organization-member-json-object).
 
 #### Example Response
 
@@ -548,7 +542,7 @@ The response is an [organization member JSON object](#organization-member-json-o
 ```endpoint
 GET /api/v1/organizations/{organization_slug}/users/{username}/
 ```
-This method gets the information of a specific member of an organization. This can be helpful if you need to see whether that person is an administrator of the organization or not. 
+This method gets the information of a specific member of an organization. This can be helpful if you need to see whether that person is an administrator of the organization or not.
 
 **URL Parameters**
 
@@ -559,7 +553,7 @@ URL Parameter | Description
 
 **Response**
 
-The response includes the properties of an [organization member JSON object](#organization-member-json-object). 
+The response includes the properties of an [organization member JSON object](#organization-member-json-object).
 
 
 #### Example Response
@@ -584,7 +578,7 @@ The response includes the properties of an [organization member JSON object](#or
 PATCH /api/v1/organizations/{organization_slug}/users/{username}/
 ```
 
-This method updates the admin status of a specific member of an organization. If you need to change the user's account information, see how to [update a user account](#update-a-user-account). 
+This method updates the admin status of a specific member of an organization. If you need to change the user's account information, see how to [update a user account](#update-a-user-account).
 
 **URL Parameters**
 
@@ -595,7 +589,7 @@ URL Parameter | Description
 
 **Request Payload**
 
-You must provide the username and the admin status. 
+You must provide the username and the admin status.
 
 Property | Type | Required? | Description
 ---|---|:---:|---
@@ -603,7 +597,7 @@ Property | Type | Required? | Description
 
 **Response**
 
-The response is an [organization member JSON object](#organization-member-json-object). 
+The response is an [organization member JSON object](#organization-member-json-object).
 
 #### Example Response
 
@@ -638,4 +632,4 @@ URL Parameter | Description
 
 **Response**
 
-If the user was successfully deleted, an empty response with status code `204` will be returned. 
+If the user was successfully deleted, an empty response with status code `204` will be returned.
