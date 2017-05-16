@@ -221,15 +221,11 @@ The response body is a GeoJSON feature collection of multiple [project location 
 POST /api/v1/organizations/{organization_slug}/projects/{project_slug}/spatial/
 ```
 
-Use this method to create a new spatial unit / project location.
+Use this method to create a new spatial unit / project location. Each spatial unit should represent a single feature (rather than a feature collection).
 
 **Request Payload**
 
-Property | Type | Required? | Description
---- | --- | :---: | ---
-`geometry` | `Object` | x | A <a href="https://en.wikipedia.org/wiki/GeoJSON#Geometries" target="_blank"> GeoJSON geometry</a>) defining the geographic coordinates of the location.
-`type` | `String` | x | This refers to the possible land `types` that the location could be (e.g. `PA` = Parcel). See the **Land `type` Abbreviations**  table above for more information.
-`attributes` | `Array` |  | An array of different attributes for the property.
+The endpoint expects a <a href="https://en.wikipedia.org/wiki/GeoJSON#Geometries" target="_blank"> GeoJSON geometry</a>) defining the geographic coordinates of the location.  The location's metadata should be encoded in its `properties` attribute. For more information, see the above [Spatial Unit JSON Object documentation](##spatial-unit-json-object).
 
 
 **Response**
