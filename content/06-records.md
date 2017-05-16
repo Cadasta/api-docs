@@ -225,7 +225,13 @@ Use this method to create a new spatial unit / project location. Each spatial un
 
 **Request Payload**
 
-The endpoint expects a <a href="https://en.wikipedia.org/wiki/GeoJSON#Geometries" target="_blank"> GeoJSON geometry</a>) defining the geographic coordinates of the location.  The location's metadata should be encoded in its `properties` attribute. For more information, see the above [Spatial Unit JSON Object documentation](##spatial-unit-json-object).
+Request object should formatted as a <a href="https://en.wikipedia.org/wiki/GeoJSON" target="_blank"> GeoJSON object</a>), as described in the [Spatial Unit JSON Object documentation](##spatial-unit-json-object).
+
+Property | Type | Required? | Description
+--- | --- | :---: | ---
+`geometry` | `Object` | x | A <a href="https://en.wikipedia.org/wiki/GeoJSON#Geometries" target="_blank"> GeoJSON Feature's geometry attribute</a>)defining the geographic coordinates of the location.
+`properties.type` | `String` | x | This refers to the possible land `types` that the location could be (e.g. `PA` = Parcel). See the **Land `type` Abbreviations**  table above for more information.
+`properties.attributes` | `Array` |  | An array of different attributes for the property.
 
 
 **Response**
