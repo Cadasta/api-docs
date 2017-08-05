@@ -15,11 +15,9 @@ Welcome to Cadasta's API documentation! These docs will walk you through the dif
 <!-- Mention bulk importing and the structure of Cadasta -->
 <!-- include API endpoint visual -->
 
-## Topics
+This documentation is structured primarily by related functionality and topic, and then by endpoint.
 
-### Reading this Documentation
-
-This documentation is structured by related functionality and then by endpoint. Each endpoint is described using several parts:
+Each endpoint is described using several parts:
 
 * **The HTTP method.** The primary methods you'll see here are `GET`, `POST`, `PATCH`, and `DELETE`.
 
@@ -27,7 +25,9 @@ This documentation is structured by related functionality and then by endpoint. 
 
 * **Any URL parameters**, a.k.a. parts of the endpoints are wrapped in brackets. In the above path, those would be `{organization_slug}` and `{project_slug}`
 
-Each combination of method and endpoint is described by a request payload, properties, and an example response.
+In addition, each combination of method and endpoint is described by a request payload, properties, and an example response.
+
+All URLs referenced here require their own base path, which may be your own local instance of the Cadasta Platform. If you'd like to use an existing base path to explore the API, you can use the one for our demo site: `https://demo.cadasta.org/`.
 
 ### Using the API
 
@@ -49,7 +49,7 @@ All requests are encoded in `application/json`, unless they involve some kind of
 
 After submitting any API request, you'll get one of the following responses.
 
-Property | Description
+Response | Description
 ---|---
 `200`,`201` | The operation has been completed successfully
 `400` | There was a problem with the request payload. Usually this means required attributes are missing or the values provided are not accepted. Only applies to the `POST`, `PATCH` and `PUT` requests.
@@ -59,7 +59,7 @@ Property | Description
 
 ### Formatting URLs for Accessing Specific Objects
 
-To get, create, or modify projects, organizations, organization members and more, you'll need to access certain IDs (such as `username`) or a couple different kinds of slugs.  
+To get, create, or modify projects, organizations, organization members and more, you'll need to access certain IDs (such as `username`) or a couple different kinds of slugs.
 
 Two slugs that appear frequently are:
 
@@ -85,3 +85,46 @@ GET /api/v1/organizations/sample-organization/projects/sample-project/
 ```
 
 This API uses many other IDs and slugs, each of which are explained along with the endpoint they are used in.
+
+### Pagination
+
+When listing multiple resources, responses are paginated. This allows the server to return large datasets over a number of requests, avoiding timeouts and enabling clients to reduce wait time by making multiple requests in parallel.
+
+Paginated responses contain the following properties:
+
+Response | Description
+---|---
+`count` | Total number of resources to be returned.
+`next` | URL to next page of data (`null` if not applicable)
+`previous` | URL to previous page of data (`null` if not applicable)
+`results` | Array of resources that fit within the given page of data. _Note: GeoJSON responses return a single object with a `"type": "FeatureCollection"` and data in the `"features"` property._
+
+Pagination can be controlled with the following query parameters:
+
+Query Paramter | Description
+---|---
+`limit` | The maximum number of items to return. By default, endpoints return `100` entries per page. Any exceptions are indicated in the documentation.
+`offset` | The starting position of the query in relation to the complete set of unpaginated items.
+
+#### JSON Response
+```json
+{
+  "count": 0,
+  "next": null,
+  "previous": null,
+  "results": []
+}
+```
+
+#### GeoJSON Response
+```json
+{
+  "count": 0,
+  "next": null,
+  "previous": null,
+  "results": {
+    "type": "FeatureCollection",
+    "features": []
+  }
+}
+```
