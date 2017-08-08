@@ -1,6 +1,6 @@
 ## Organizations
 
-Organizations in the Cadasta Platform represent organizations in real life. The Cadasta API allows you to work with data associated with organizations that have been added to the platform, and to add organizations as well. The endpoints for these objects start with `api/v1/organizations`.
+Organizations in Cadasta represent organizations in real life. The Cadasta API allows you to work with data associated with organizations that have been added to the platform, and to add organizations as well. The endpoints for these objects start with `api/v1/organizations`.
 
 _To learn more about organizations, <a href="https://docs.cadasta.org/en/02-organizations.html" target="_blank">see our documentation on Organizations</a>._
 

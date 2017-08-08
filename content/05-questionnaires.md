@@ -1,14 +1,16 @@
 ## Questionnaires
 
-Each project in the Cadasta Platform requires a questionnaire in order to work. This questionnaire creates the essential framework for data collection, either online or in the field.
+Each project on the Cadasta Platform requires a questionnaire, or set of questions and values, to display. The set of questions creates the essential framework for data collection.
 
-Using the API, you can get the structure of your questionnaire in JSON format, or you can replace the questionnaire being used for a project.
+Using the API, you can submit/replace questions in JSON format or get the questionnaire schema in JSON format. With the "Advanced" setting in the QGIS plugin, you can use the JSON structure to customally create a questionnaire while uploading data.
 
-Note that you **cannot** replace a questionnaire in an active project once data is being collected about it.
+**Note:** You **cannot** replace a questionnaire in an active project once data has been collected.
 
-_To learn more about how questionnaires work, <a href="https://docs.cadasta.org/en/08-XLSForms.html" target="_blank">see our documentation on Questionnaires & Custom Data Collection</a>._
+*Tip*: Cadasta uses three entities-- locations, parties, and relationships-- to store questions. Each question must be located in one of these three entities. And each questionnaire must include the five required fields (but these are not located in the location, party or relationship attributes): `location_type` (select_one type with custom values-- names, or keys, can only have 10 characters), `tenure_type (select_one type with custom values-- names, or keys, can only have 10 characters), `party_name` (text field) and `party_type` (select_one with values that must be `IN`, `GR`, `CO`).
 
-The endpoint you'll use to work with questionnaires begins with:
+_To learn more about how questionnaires work, see our documentation on <a href="https://docs.cadasta.org/en/08-XLSForms.html" target="_blank">Questionnaires and Custom Data Collection</a>._
+
+The endpoint you will use to work with questionnaires begins with:
 
 ```
 /api/v1/organizations/{organization_slug}/projects/{project_slug}/questionnaire/
@@ -99,7 +101,7 @@ The following values are for metadata that your questionnaire may be collecting:
 `PN` | `phonenumber` | Phone number of the device (if available)
 
 
-##### Example Questionnaire JSON Object
+##### Example Questionnaire JSON Payload
 
 ```json
 {
@@ -132,8 +134,7 @@ The following values are for metadata that your questionnaire may be collecting:
       ],
       "relevant": null,
       "type": "group"
-    },
-    {
+    },{
       "id": "8y8hv2vmp25crcytqf4gcsk3",
       "index": 1,
       "label": "Default Party Attributes",
@@ -157,8 +158,7 @@ The following values are for metadata that your questionnaire may be collecting:
       ],
       "relevant": null,
       "type": "group"
-    },
-    {
+    },{
       "id": "zu7wigmdketa7xnherh6295f",
       "index": 2,
       "label": "Location Attributes",
@@ -178,8 +178,7 @@ The following values are for metadata that your questionnaire may be collecting:
           "relevant": null,
           "required": false,
           "type": "TX"
-        },
-        {
+        },{
           "constraint": null,
           "default": "null",
           "hint": "Quality of parcel geometry",
@@ -195,29 +194,25 @@ The following values are for metadata that your questionnaire may be collecting:
               "label": "No data",
               "label_xlat": "No data",
               "name": "null"
-            },
-            {
+            },{
               "id": "hid7jsnun2twnnfscvkyx25w",
               "index": 2,
               "label": "Textual",
               "label_xlat": "Textual",
               "name": "text"
-            },
-            {
+            },{
               "id": "5qssuz7ig5wzymb33d2rat2p",
               "index": 3,
               "label": "Point data",
               "label_xlat": "Point data",
               "name": "point"
-            },
-            {
+            },{
               "id": "pb8rsyum45hrvwasebmzernb",
               "index": 4,
               "label": "Low quality polygon",
               "label_xlat": "Low quality polygon",
               "name": "polygon_low"
-            },
-            {
+            },{
               "id": "9pb2uthpy7w44f9yq4vrmgcm",
               "index": 5,
               "label": "High quality polygon",
@@ -228,8 +223,7 @@ The following values are for metadata that your questionnaire may be collecting:
           "relevant": null,
           "required": false,
           "type": "S1"
-        },
-        {
+        },{
           "constraint": null,
           "default": "OT",
           "hint": null,
@@ -245,15 +239,13 @@ The following values are for metadata that your questionnaire may be collecting:
               "label": "Contractual Share Crop",
               "label_xlat": "Contractual Share Crop",
               "name": "CS"
-            },
-            {
+            },{
               "id": "hy95hvwvgidx8av7tv5e2va2",
               "index": 2,
               "label": "Customary Arrangement",
               "label_xlat": "Customary Arrangement",
               "name": "CA"
-            },
-            {
+            },{
               "id": "88i4xdyg9qufm89biarqhcf3",
               "index": 3,
               "label": "Gift",
@@ -264,8 +256,7 @@ The following values are for metadata that your questionnaire may be collecting:
           "relevant": null,
           "required": false,
           "type": "S1"
-        },
-        {
+        },{
           "constraint": null,
           "default": "null",
           "hint": null,
@@ -277,8 +268,7 @@ The following values are for metadata that your questionnaire may be collecting:
           "relevant": null,
           "required": false,
           "type": "DA"
-        },
-        {
+        },{
           "constraint": null,
           "default": null,
           "hint": "Additional Notes",
@@ -309,8 +299,7 @@ The following values are for metadata that your questionnaire may be collecting:
       "relevant": null,
       "required": false,
       "type": "ST"
-    },
-    {
+    },{
       "constraint": null,
       "default": null,
       "hint": null,
@@ -322,8 +311,7 @@ The following values are for metadata that your questionnaire may be collecting:
       "relevant": null,
       "required": false,
       "type": "EN"
-    },
-    {
+    },{
       "constraint": null,
       "default": null,
       "hint": null,
@@ -335,8 +323,7 @@ The following values are for metadata that your questionnaire may be collecting:
       "relevant": null,
       "required": false,
       "type": "TD"
-    },
-    {
+    },{
       "constraint": null,
       "default": null,
       "hint": null,
@@ -348,8 +335,7 @@ The following values are for metadata that your questionnaire may be collecting:
       "relevant": null,
       "required": false,
       "type": "DI"
-    },
-    {
+    },{
       "constraint": null,
       "default": null,
       "hint": null,
@@ -361,8 +347,7 @@ The following values are for metadata that your questionnaire may be collecting:
       "relevant": null,
       "required": false,
       "type": "NO"
-    },
-    {
+    },{
       "constraint": null,
       "default": null,
       "hint": null,
@@ -378,15 +363,13 @@ The following values are for metadata that your questionnaire may be collecting:
           "label": "Group",
           "label_xlat": "Group",
           "name": "GR"
-        },
-        {
+        },{
           "id": "4afq8wfhv93czkveb43chqpq",
           "index": 2,
           "label": "Individual",
           "label_xlat": "Individual",
           "name": "IN"
-        },
-        {
+        },{
           "id": "9ew3kquph5nw4v4xaccyx7xq",
           "index": 3,
           "label": "Corporation",
@@ -397,8 +380,7 @@ The following values are for metadata that your questionnaire may be collecting:
       "relevant": null,
       "required": true,
       "type": "S1"
-    },
-    {
+    },{
       "constraint": null,
       "default": null,
       "hint": null,
@@ -410,8 +392,7 @@ The following values are for metadata that your questionnaire may be collecting:
       "relevant": null,
       "required": true,
       "type": "TX"
-    },
-    {
+    },{
       "constraint": null,
       "default": null,
       "hint": null,
@@ -423,8 +404,7 @@ The following values are for metadata that your questionnaire may be collecting:
       "relevant": null,
       "required": false,
       "type": "GT"
-    },
-    {
+    },{
       "constraint": null,
       "default": null,
       "hint": null,
@@ -440,15 +420,13 @@ The following values are for metadata that your questionnaire may be collecting:
           "label": "Parcel",
           "label_xlat": "Parcel",
           "name": "PA"
-        },
-        {
+        },{
           "id": "8z5qq8dtsjtvxgd445ei4rc7",
           "index": 2,
           "label": "Community Boundary",
           "label_xlat": "Community Boundary",
           "name": "CB"
-        },
-        {
+        },{
           "id": "ksj3qsxmud8xe67b78pnyri7",
           "index": 3,
           "label": "Building",
@@ -459,8 +437,7 @@ The following values are for metadata that your questionnaire may be collecting:
       "relevant": null,
       "required": true,
       "type": "S1"
-    },
-    {
+    },{
       "constraint": null,
       "default": null,
       "hint": null,
@@ -472,8 +449,7 @@ The following values are for metadata that your questionnaire may be collecting:
       "relevant": null,
       "required": false,
       "type": "PH"
-    },
-    {
+    },{
       "constraint": null,
       "default": null,
       "hint": null,
@@ -485,8 +461,7 @@ The following values are for metadata that your questionnaire may be collecting:
       "relevant": null,
       "required": false,
       "type": "PH"
-    },
-    {
+    },{
       "constraint": null,
       "default": null,
       "hint": null,
@@ -502,15 +477,13 @@ The following values are for metadata that your questionnaire may be collecting:
           "label": "All Types",
           "label_xlat": "All Types",
           "name": "AL"
-        },
-        {
+        },{
           "id": "7yjd2yqnmdku52em9sst3sck",
           "index": 2,
           "label": "Carbon Rights",
           "label_xlat": "Carbon Rights",
           "name": "CR"
-        },
-        {
+        },{
           "id": "37ewegjhj4duvrgqw5erzrnz",
           "index": 3,
           "label": "Concessionary Rights",

@@ -1,6 +1,6 @@
 ## Project Resources
 
-For any given project, there are lots of resources that may be collected: letters, deeds, photographs, audio recordings, etc. Using the Cadasta API, you can list all the resources connected to a specific project, as well as create, view, and update individual ones.
+Each project has the ability to attach resources generally to projects or specifically to location, party or relationship entities. Resources may include letters, deeds/titles, photographs, audio recordings, etc. With the Cadasta API, you can list all the resources connected to a specific project, as well as create, view, and update individual ones.
 
 _<a href="https://docs.cadasta.org/en/04-records.html#project-resources" target="_blank">Read more about Project Resources in our Platform Documentation</a>_
 
@@ -433,3 +433,5 @@ Property | Type | Description
   ]
 }
 ```
+
+<!-- need to list out the specific endpoints to attach resources on location, parties and tenures -->

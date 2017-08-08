@@ -1,24 +1,19 @@
 ## Cadasta API documentation
 
-Welcome to the Cadasta Platform API documentation.
+Welcome to Cadasta's API documentation! These docs will walk you through the different endpoints of the Cadasta platform:
 
-Using this platform API, you can:
+* **Users** :: Managing user [accounts](#managing-a-user-account) - creating, deleting, and amending them as needed;
+* **Organizations** :: Creating and editing [organizations](#organizations);
+* **Projects** :: Viewing, creating, and modifying [projects](#projects) in the system,
+* **Questionnaires** :: Upload new [questionnaires](#questionnaires-1),
+* **Locations/Parties/Relationships** :: Adding, modifying and deleting records for:
+  * [locations, aka spatial units](#spatial-units-aka-project-locations),
+  * [parties](#parties), and
+  * [relationships](#relationships) between the location and parties.
+* **Resources** :: Adding, modifying, and deleting [project resources](#project-resources), or documentations/photos.
 
-* Manage user [accounts](#managing-a-user-account) - creating them, deleting them, and amending them as needed;
-* Create and edit [organizations](#organizations);
-* View, create, and modify [projects](#projects) in the system,
-* Upload new [questionnaires](#questionnaires-1),
-* Add, modify and delete records for:
-  * [spatial units/project locations](#spatial-units-aka-project-locations),
-  * [parties](#parties) associated with these locations, and
-  * the [relationships](#relationships) between the two.
-* And finally add, modify, and delete [project resources](#project-resources).
-
-Each of the sections listed above outline how to use API endpoints to make these things happen.
-
-## Topics
-
-### Reading this Documentation
+<!-- Mention bulk importing and the structure of Cadasta -->
+<!-- include API endpoint visual -->
 
 This documentation is structured primarily by related functionality and topic, and then by endpoint.
 
@@ -26,7 +21,7 @@ Each endpoint is described using several parts:
 
 * **The HTTP method.** The primary methods you'll see here are `GET`, `POST`, `PATCH`, and `DELETE`.
 
-* **The path**, such as `/api/v1/organizations/{organization_slug}/projects/{project_slug}/spatial/`.
+* **The path**, such as `/api/v1/organizations/{organization_slug}/projects/{project_slug}/spatial/`. All URLs referenced here require their own base path, which may be https://demo.cadasta.org, https://platform.cadasta.org or the URL of your own local instance of the platform. We recommend using `https://demo.cadasta.org/` for testing.
 
 * **Any URL parameters**, a.k.a. parts of the endpoints are wrapped in brackets. In the above path, those would be `{organization_slug}` and `{project_slug}`
 
@@ -38,15 +33,17 @@ All URLs referenced here require their own base path, which may be your own loca
 
 This API works best in one of two scenarios:
 
-1. **You're a developer working with an individual or organization using the Cadasta Platform.** If you have administrator access to the organization you're working for, you'll be able to perform many of the key functions for that organization using your [authorization token](#log-a-user-in--get-authorization-key).
+1. **You are a developer working with an individual or organization using the Cadasta Platform.** If you have administrator access to the organization you're working for, you'll be able to perform many of the key functions for that organization using your [authorization token](#log-a-user-in--get-authorization-key).
 
-2. **You've created a locally-hosted version of the platform.**
+2. **You have created a locally hosted version of the platform.**
 
-If you have any questions about using the API, please don't hesitate to <a href="(http://cadasta.org/contact/)" target="_blank">contact us</a>.
+If you have any questions about using the API, do not hesitate to <a href="(http://cadasta.org/contact/)" target="_blank">contact us</a>. You can also ask questions on our gitter channel, https://gitter.im/Cadasta/cadasta.
+
+The API is built using the Django REST framework, so you have the ability to view the API properties if you head to the API endpoint, such as https://platform.cadasta.org/api/v1/organizations/.
 
 ### Requests
 
-All requests are encoded in `application/json`, unless they involve some kind of file upload. Any exceptions are indicated in the documentation.
+All requests are encoded in `application/json`, unless they involve some kind of file upload. Any exceptions are indicated in the documentation. 
 
 ### Common Response Codes
 
@@ -54,9 +51,9 @@ After submitting any API request, you'll get one of the following responses.
 
 Response | Description
 ---|---
-`200` | The operation has been completed successfully.
-`400` | There was a problem with the request payload. Usually this means required attributes are missing or the values provided are not accepted. Only applies the `POST`, `PATCH` and `PUT` requests.
-`401` | This request requires a user to be authenticated. You either have not provided an authentication token or the  authentication token provided is not valid.
+`200`,`201` | The operation has been completed successfully
+`400` | There was a problem with the request payload. Usually this means required attributes are missing or the values provided are not accepted. Only applies to the `POST`, `PATCH` and `PUT` requests.
+`401` | This request requires a user to be authenticated. You either have not provided an authentication token or the authentication token provided is not valid.
 `403` | Permission denied, the user has no permission to access this resource or perform this action.
 `404` | Not found. (The object with the given slug or ID was not in the database.)
 

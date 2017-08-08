@@ -1,16 +1,16 @@
-## Spatial Units (a.k.a Project Locations)
+## Spatial Units (a.k.a Locations)
 
 
-Projects in the Cadasta Platform are spatial in nature – collections of points, lines, and polygons representing areas where land rights documentation is happening. These points, lines, and polygons can be retrieved and modified using the Cadasta API.
+Projects on the Cadasta Platform are spatial in nature – collections of points, lines, and/or polygons representing areas where land rights documentation is happening. These points, lines, and polygons can be retrieved and modified using the Cadasta API.
 
 _<a href="https://docs.cadasta.org/en/04-records.html#project-locations" target="_blank">Read more about Project Locations in our Platform Documentation</a>_
 
-The endpoint you need to access JSON for spatial units / project locations starts like this: `/api/v1/organizations/{organization_slug}/projects/{project_slug}/spatial/`
+The endpoint spatial units, or locations, start like this: `/api/v1/organizations/{organization_slug}/projects/{project_slug}/spatial/`
 
 
 ### Spatial Unit JSON Object
 
-A spatial unit / project location JSON object is a [GEOJSON object](http://geojson.org/) contains the following properties:
+A spatial unit/location JSON object is a [GEOJSON object](http://geojson.org/) containing the following properties:
 
 Property | Type | Description
 ---|---|---
@@ -28,7 +28,9 @@ Property | Type | Description
 
 **Land `type` Abbreviations**
 
-If you need to plot out the land `types`, these are the abbreviations you need:
+The choices, or land types, for location types can be custom values. For all choice values, the names must be 10 characters or less, while the labels do not have any limitations. 
+
+In the past, many projects have used these abbreviations for land types:
 
 Abbreviation | What it Represents
 --- | ---
@@ -42,7 +44,7 @@ Abbreviation | What it Represents
 `MI` | Miscellaneous
 
 
-#### Example Spatial Unit / Project Location JSON Object
+#### Example Spatial Unit/Location JSON Object
 
 ```json
 
@@ -101,7 +103,7 @@ Abbreviation | What it Represents
 
 
 
-### List Spatial Units / Project Locations
+### List Spatial Units/Locations
 
 ```endpoint
 GET /api/v1/organizations/{organization_slug}/projects/{project_slug}/spatial/
@@ -214,14 +216,14 @@ The response body is a GeoJSON feature collection of multiple [project location 
 
 
 
-### Create a New Spatial Unit / Project Location
+### Create a New Spatial Unit/Location
 
 
 ```endpoint
 POST /api/v1/organizations/{organization_slug}/projects/{project_slug}/spatial/
 ```
 
-Use this method to create a new spatial unit / project location.
+Use this method to create a new spatial unit/location.
 
 **Request Payload**
 
@@ -234,7 +236,7 @@ Property | Type | Required? | Description
 
 **Response**
 
-The response is a complete [spatial unit / project location JSON Object](#spatial-unit-json-object).
+The response is a complete [spatial unit/location JSON Object](#spatial-unit-json-object).
 
 #### Example Response
 
@@ -267,13 +269,13 @@ The response is a complete [spatial unit / project location JSON Object](#spatia
 
 
 
-### Get a Spatial Unit / Project Location
+### Get a Spatial Unit/Location
 
 ```endpoint
 GET /api/v1/organizations/{organization_slug}/projects/{project_slug}/spatial/{spatial_unit_id}/
 ```
 
-Use this method to get the JSON object for a specific spatial unit / project location.
+Use this method to get the JSON object for a specific spatial unit/location.
 
 **URL Parameters**
 
@@ -286,7 +288,7 @@ URL Parameter | Description
 
 **Response**
 
-The response is a complete [spatial unit / project location JSON Object](#spatial-unit-json-object).
+The response is a complete [spatial unit/location JSON Object](#spatial-unit-json-object).
 
 
 #### Example Response
@@ -336,13 +338,13 @@ The response is a complete [spatial unit / project location JSON Object](#spatia
 
 
 
-### Update a Spatial Unit / Project Location
+### Update a Spatial Unit/Location
 
 ```endpoint
 PATCH /api/v1/organizations/{organization_slug}/projects/{project_slug}/spatial/{spatial_unit_id}/
 ```
 
-Use this method to update the JSON object for a specific spatial unit / project location.
+Use this method to update the JSON object for a specific spatial unit/location.
 
 **URL Parameters**
 
@@ -365,7 +367,7 @@ Property | Type | Required? | Description
 
 **Response**
 
-The response is a complete [spatial unit / project location JSON Object](#spatial-unit-json-object).
+The response is a complete [spatial unit/location JSON Object](#spatial-unit-json-object).
 
 
 #### Example Response
@@ -421,13 +423,13 @@ The response is a complete [spatial unit / project location JSON Object](#spatia
 
 
 
-### Delete a Spatial Unit / Project Location
+### Delete a Spatial Unit/Location
 
 ```endpoint
 DELETE /api/v1/organizations/{organization_slug}/projects/{project_slug}/spatial/{spatial_unit_id}/
 ```
 
-Use this method to delete a spatial unit / project location.
+Use this method to delete a spatial unit/location.
 
 **URL Parameters**
 
@@ -740,7 +742,7 @@ Each location has a relationship with one or more parties, and each of those par
 
 _<a href="https://docs.cadasta.org/en/04-records.html#location-relationships" target="_blank">Read more about Relationships in our Platform Documentation</a>_
 
-The Cadasta API allows you to list relationships of a party and list relationships to a spatial unit / project location. You can also get, create, update, and delete relationships as well.
+The Cadasta API allows you to list relationships of a party and list relationships to a spatial unit/location. You can also get, create, update, and delete relationships as well.
 
 Endpoints in this section start with:
 
@@ -770,7 +772,7 @@ Property | Type | Description
 `rel_class`| `String` | The type of relationships; currently `"tenure"` is the only possible relationship type.
 `id` | `String`  | The unique ID of the relationship
 `party` | `Array` | The object containing the party that the spatial unit is related to. (See the `party` table below for more information.)
-`spatial_unit` | `Object` | The spatial unit / project location object. (See the `spatial unit` table below for more information.)
+`spatial_unit` | `Object` | The spatial unit/location object. (See the `spatial unit` table below for more information.)
 `tenure_type`| `String` |  The kind of relationship. (See the Relationship (Tenure) Categories table for more information.)
 `attributes`| `Object`  | Project-specific attributes that are defined through the project's questionnaire.
 
