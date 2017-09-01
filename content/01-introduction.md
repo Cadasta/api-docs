@@ -5,7 +5,7 @@ Welcome to Cadasta's API documentation! These docs will walk you through the dif
 * **Users** :: Managing user [accounts](#managing-a-user-account) - creating, deleting, and amending them as needed;
 * **Organizations** :: Creating and editing [organizations](#organizations);
 * **Projects** :: Viewing, creating, and modifying [projects](#projects) in the system,
-* **Questionnaires** :: Upload new [questionnaires](#questionnaires-1),
+* **Questionnaires** :: Upload new [questionnaires](#questionnaires),
 * **Locations/Parties/Relationships** :: Adding, modifying and deleting records for:
   * [locations, aka spatial units](#spatial-units-aka-project-locations),
   * [parties](#parties), and

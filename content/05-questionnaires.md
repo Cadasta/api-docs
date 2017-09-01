@@ -6,7 +6,7 @@ Using the API, you can submit/replace questions in JSON format or get the questi
 
 **Note:** You **cannot** replace a questionnaire in an active project once data has been collected.
 
-*Tip*: Cadasta uses three entities-- locations, parties, and relationships-- to store questions. Each question must be located in one of these three entities. And each questionnaire must include the five required fields (but these are not located in the location, party or relationship attributes): `location_type` (select_one type with custom values-- names, or keys, can only have 10 characters), `tenure_type (select_one type with custom values-- names, or keys, can only have 10 characters), `party_name` (text field) and `party_type` (select_one with values that must be `IN`, `GR`, `CO`).
+*Tip*: Cadasta uses three entities to store questions: locations, parties, and relationships. Each question must be located in one of these three entities. And each questionnaire must include the five required fields (but these are not located in the location, party or relationship attributes): `location_type` (select_one type with custom values-- names, or keys, can only have 10 characters), `tenure_type` (select_one type with custom values-- names, or keys, can only have 10 characters), `party_name` (text field) and `party_type` (select_one with values that must be `IN`, `GR`, `CO`).
 
 _To learn more about how questionnaires work, see our documentation on <a href="https://docs.cadasta.org/en/08-XLSForms.html" target="_blank">Questionnaires and Custom Data Collection</a>._
 
