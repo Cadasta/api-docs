@@ -18,7 +18,7 @@ Property | Type Description
 `email` | `String` | The user's email address.
 `email_verified` | `Boolean` | Indicates whether the user has verified their email address.
 `last_login` | `String` | Date and time of last user login.
-`language` | `String` | The current available language codes are [‘en’, ‘fr’, ‘es’, ‘id’, ‘pt’‘]. Default is “en-us”.
+`language` | `String` | The current available language codes are [‘en’, ‘fr’, ‘es’, ‘id’, ‘pt’, ‘it’]. Default is “en-us”.
 
 
 #### Example Account JSON Object
