@@ -253,7 +253,7 @@ curl -X POST localhost:8000/api/v1/account/password/ -H ‘Authorization: token 
 
 **Response**
 
-If the password was changed successfully, an empty response with response code `200` is returned.
+If the password was changed successfully, an empty response with response code `204` is returned.
 
 
 
