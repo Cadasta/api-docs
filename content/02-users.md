@@ -29,7 +29,10 @@ Property | Type Description
   "full_name": "Jane Doe",
   "email": "jane@cadasta.org",
   "email_verified": true,
-  "last_login": "2016-10-25T20:20:14.192918Z"
+  "last_login": "2016-10-25T20:20:14.192918Z",
+  "language": "en",
+  "measurement": "metric",
+  "avatar": "https://s3-us-west-2.amazonaws.com/cadasta-platformdemo-bucket/avatars/quybdrsgicebb9t7zat3gbym.png"
 }
 ```
 
