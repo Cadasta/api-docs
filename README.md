@@ -15,7 +15,7 @@ To view what your changes will look like on the website, you need to compile the
 
 After you `npm install` the project, you can run `npm start` and its development server, [budo](https://github.com/mattdesl/budo) will serve the website locally and update automatically.
 
-###Requirements
+## Requirements
 
 * Node v4 or higher
 * NPM
