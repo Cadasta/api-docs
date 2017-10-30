@@ -22,5 +22,7 @@ git config --global user.email "murad.kuka@gmail.com"
 
 git add .
 git commit -m "Docs updated for $TRAVIS_TAG"
-git push origin gh-pages --quiet
+# git push origin gh-pages --quiet
+git checkout -b gh-pages-temp
+git push origin gh-pages-temp --quiet
 echo "Docs updated."
